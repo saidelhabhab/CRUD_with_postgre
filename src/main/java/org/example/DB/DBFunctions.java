@@ -101,4 +101,93 @@ public class DBFunctions {
         }
     }
 
+    public void search_by_name(Connection conn,String table_name, String name){
+
+            Statement statement;
+            ResultSet rs= null;
+            try{
+
+                String query = String.format(" select * from %s where firstname = '%s' ",table_name,name);
+                statement = conn.createStatement();
+                rs=  statement.executeQuery(query);
+
+                while (rs.next())
+                {
+                    System.out.print(rs.getString("empid")+" " );
+                    System.out.print(rs.getString("firstname")+" " );
+                    System.out.print(rs.getString("lastname")+" " );
+                    System.out.println(rs.getString("phone")+" " );
+                }
+
+
+            }catch (Exception e){
+                System.out.println(e);
+            }
+
+    }
+
+    public void search_by_id(Connection conn,String table_name, int id){
+
+        Statement statement;
+        ResultSet rs= null;
+        try{
+
+            String query = String.format(" select * from %s where empid = %d ",table_name,id);
+            statement = conn.createStatement();
+            rs=  statement.executeQuery(query);
+
+            while (rs.next())
+            {
+                System.out.print(rs.getString("empid")+" " );
+                System.out.print(rs.getString("firstname")+" " );
+                System.out.print(rs.getString("lastname")+" " );
+                System.out.println(rs.getString("phone")+" " );
+            }
+
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+    }
+
+
+    public void delete_by_id(Connection conn,String table_name, int id){
+
+        Statement statement;
+        try{
+
+            String query = String.format(" delete from %s where empid = %d ",table_name,id);
+            statement = conn.createStatement();
+            statement.executeQuery(query);
+
+            System.out.println("Data deleted ") ;
+
+
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+    }
+
+    public void delete_by_name(Connection conn,String table_name, String name){
+
+        Statement statement;
+        try{
+
+            String query = String.format(" delete from %s where firstname = '%s' ",table_name,name);
+            statement = conn.createStatement();
+            statement.executeQuery(query);
+
+            System.out.println("Data deleted ") ;
+
+
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+    }
+
 }

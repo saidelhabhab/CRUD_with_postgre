@@ -13,11 +13,27 @@ public class Main {
 
         // db.createTable(conn,"employee");
 
-         // db.insert(conn,"employee","rachid","hamwi","00045695");
+        // db.insert(conn,"employee","hamza","hamwi","00045695");
 
         db.read(conn,"employee");
 
-        db.update(conn,"employee","hamza","chado","555695",2);
-        // System.out.println("Hello world!");
+        //db.update(conn,"employee","tamer","chado","555695",4);
+
+
+        System.out.println("Hello world!");
+        //db.search_by_name(conn,"employee","said");
+       // db.search_by_id(conn,"employee",3);
+
+        //System.out.println("...................");
+        //db.delete_by_id(conn,"employee",2);
+
+       // db.read(conn,"employee");
+
+
+        System.out.println("...................");
+        //delete_by_name(conn,"employee","hamza");
+
+        db.read(conn,"employee");
+
     }
 }
