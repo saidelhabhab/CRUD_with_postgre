@@ -159,7 +159,7 @@ public class DBFunctions {
 
             String query = String.format(" delete from %s where empid = %d ",table_name,id);
             statement = conn.createStatement();
-            statement.executeQuery(query);
+            statement.executeUpdate(query);
 
             System.out.println("Data deleted ") ;
 
@@ -178,9 +178,28 @@ public class DBFunctions {
 
             String query = String.format(" delete from %s where firstname = '%s' ",table_name,name);
             statement = conn.createStatement();
-            statement.executeQuery(query);
+            statement.executeUpdate(query);
 
             System.out.println("Data deleted ") ;
+
+
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+    }
+
+    public void drop_table(Connection conn,String table_name){
+
+        Statement statement;
+        try{
+
+            String query = String.format(" drop table %s  ",table_name);
+            statement = conn.createStatement();
+            statement.executeUpdate(query);
+
+            System.out.println("table deleted ") ;
 
 
 
